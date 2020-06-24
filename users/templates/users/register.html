@@ -1,0 +1,15 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% block title %}Crie sua conta{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<link href="{% static 'css/cadastra_usuario.css' %}" rel="stylesheet" type="text/css">
+<div class="wrapper">
+ <form id="formCadUsuario"  method="POST">
+    <div id="formHead">Insira seus Dados<hr></div>
+           {% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Registrar">
+    </form>
+</div>
+{% endblock %}

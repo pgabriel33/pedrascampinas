@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pedras Campinas - Cadastro de Usuário</title>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" href="../css/cadastroUsuario.css"/>
+        
+        <!-- Bootstrap v4.3-->
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+        <script src="../bootstrap/js/bootstrap.min.js" ></script>
+        
+    </head>
+
+    <body>
+        <div class="wrapper">
+         
+          <form id="formCadUsuario">
+              <div id="formHead">Insira seus Dados<hr></div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputNome">Nome:</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                  </div>
+              
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label for="inputCPF">CPF:</label>
+                  <input type="number" class="form-control" id="inputCPF" placeholder="CPF">
+                </div>
+              
+                  
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputSenha">Senha:</label>
+                    <input type="password" id="inputSenha" class="form-control"> <span><small class="text-muted">Deve ter entre 8 e 20 caracteres.</small></span>
+                  </div>
+                </div>
+                 
+                <div class="form-group ">
+                  <label for="inputSexo">Sexo:</label>
+                  <select id="inputSexo" class="form-control">
+                    <option selected>Escolher...</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputEndereco">Endereço:</label>
+                  <input type="text" class="form-control" id="inputEndereco" placeholder="Rua dos Ferroviários, nº 2.">
+                </div>
+
+                <div class="form-group">
+                  <label for="inputObs">Obs:</label>
+                  <input type="text" class="form-control" id="inputObs" placeholder="Apartamento, casa, loja, etc.">
+                </div>
+                  
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCidade">Cidade:</label>
+                    <input type="text" class="form-control" id="inputCidade ">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputEstado">Estado:</label>
+                    <select id="inputEstado" class="form-control">
+                      <option selected>Escolher...</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputCEP">CEP:</label>
+                    <input type="text" class="form-control" id="inputCEP">
+                    </div>
+                  </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputTelefone">Telefone:</label>
+                    <input type="text" class="form-control" id="inputTelefone" placeholder="(00) 00000-0000">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputCelular">Celular:</label>
+                    <input type="text" class="form-control" id="inputCelular" placeholder="(00) 00000-0000">
+                  </div>
+                </div>
+                
+                 <a class="nav-link" href="../html/login.html">Entrar</a>
+          </form>
+        </div>
+    </body>
+</html>

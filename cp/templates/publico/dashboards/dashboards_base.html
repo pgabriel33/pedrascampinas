@@ -1,0 +1,134 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<nav class="navbar navbar-light" style="background-color: #79b2c5">
+                    <img src="{% static 'image/logo1.png' %}" id="logo" />
+
+
+                    <ul class="navbar-nav px-3">
+                         <li class="nav-item text-nowrap">
+                              <img src="{% static 'image/male.png' %}" id="user"/>
+                         </li>
+                         <li class="nav-item text-nowrap">
+                              <a class="nav-link" href="/">Sair</a>
+                         </li>
+                    </ul>
+          </nav>
+          <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-light">
+                    <div class="sidebar-sticky" >
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" style="font-size:18px;"href="{% url 'gerenciar_dashboard' %}">
+                                <span data-feather="home"></span>
+                                Dashboard <span class="sr-only"></span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" style="font-size:18px;" href="{% url 'gerenciar_produtos' %}">
+                                <span data-feather="file"></span>
+                                Produtos
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" style="font-size:18px;"href="{% url 'gerenciar_usuario' %}">
+                                <span data-feather="shopping-cart"></span>
+                                Usuarios
+                              </a>
+                            </li>
+
+                          </ul>
+                        </div>
+          </nav>
+
+           <div class="container text-center mt-4" >
+                    {% block base %}
+                    {% endblock %}
+          </div>
+          </div>
+
+
+          <!-- Modal Excluir Produto-->
+          <div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTiltulo" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                         <div class="modal-header">
+                              <h5 class="modal-title" id="excluirProdutoTiltulo">Deseja excluir o produto?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                         </div>
+
+                         <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                              <button type="button" class="btn btn-primary">Sim</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+             <!-- Modal Alterar Produto-->
+             <div class="modal fade" id="alterarProduto" tabindex="-1" role="dialog" aria-labelledby="alterarProdutoTitulo" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <h5 class="modal-title" id="alterarProdutoTitulo">Alterar Produto</h5>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                   <span aria-hidden="true">&times;</span>
+                                   </button>
+                              </div>
+
+                                <form name="meuForm">
+                                    <div id="alterarProd">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Nome do Produto</label>
+                                            <input type="text" class="form-control" id="Nomeproduto" placeholder="Nome">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">ID do Produto</label>
+                                            <input type="Number" class="form-control" id="ID" placeholder="ID">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Categoria</label>
+                                            <select class="form-control" id="Categoria">
+                                              <option>Escolher...</option>
+                                              <option>Quartzo</option>
+                                              <option>Seixo</option>
+                                              <option>Laje</option>
+                                              <option>Retalho</option>
+                                              <option>Serrada</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Cor</label>
+                                            <select class="form-control" id="Cor">
+                                              <option>Escolher...</option>
+                                              <option>Rosa</option>
+                                              <option>Branco</option>
+                                              <option>Verde</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Tamanho em cm</label>
+                                            <input type="number" class="form-control" id="tamanho" placeholder="Tamanho">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Preço em R$</label>
+                                            <input type="number" class="form-control" id="Preço" placeholder="Preço">
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                              <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                   <button type="button" class="btn btn-primary">Sim</button>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+     </body>
+ {% endblock %}

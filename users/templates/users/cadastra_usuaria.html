@@ -1,0 +1,63 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<link href="{% static 'css/cadastra_usuario.css' %}" rel="stylesheet" type="text/css">
+<script  type="text/javascript" src= "{% static 'js/cadastra_usuaria.js' %}"></script>
+<script  type="text/javascript" src= "{% static 'js/api_cep.js' %}"></script>
+
+<div class="wrapper">
+
+  <form id="formCadUsuario"  method="POST">
+    {% csrf_token %}
+    <div id="formHead">Insira seus Dados<hr></div>
+
+        {{form.nome|as_crispy_field}}
+        {{form.email|as_crispy_field}}
+        {{form.cpf|as_crispy_field}}
+        {{form.data_de_nascimento|as_crispy_field}}
+        {{form.genero|as_crispy_field}}
+
+        <div class="form-row">
+          <div class="form-group col-md-4 mb-0">
+            {{form.cep|as_crispy_field}}
+          </div>
+          
+          <div class="form-group col-md-4 mb-0">
+            {{form.cidade|as_crispy_field}}
+          </div>
+
+           <div class="form-group col-md-4 mb-0">
+            {{form.estado|as_crispy_field}}
+          </div>
+        </div>
+        
+        {{form.endereco|as_crispy_field}}
+        {{form.observacao_endereco|as_crispy_field}}
+
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-0">
+            {{form.telefone|as_crispy_field}}
+          </div>
+          
+          <div class="form-group col-md-6 mb-0">
+            {{form.celular|as_crispy_field}}
+          </div>
+        </div>          
+        
+         <button  type="submit" class="btn btn-success">Salvar</button>
+         <button type="button" class="btn btn-danger">Cancelar</button>
+  </form>
+</div>
+
+<script>
+	  function open_popup(date_today) {
+		document.querySelector("#id_data_de_nascimento").value = date_today;
+	}
+
+	var data = "{{data}}";
+    open_popup(data);
+	</script>
+
+{% endblock %}
+

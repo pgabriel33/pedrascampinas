@@ -1,0 +1,114 @@
+{% extends 'publico/dashboards/dashboards_base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block style %}
+<link href="{% static 'css/listaProduto.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block base %}
+
+<h1 class="h2">Listagem de Produtos</h1>
+<hr>
+
+<div class="form-row">
+
+    <div class="form-group col-nd-6">
+    <a href="{% url 'cadastrar_produtos' %}">
+    <button class="btn btn-primary">Cadastar Produto</button>
+    </a>
+    </div>
+
+    <div class="form-group col-md-6">
+    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">
+    </div>
+
+    <div class="form-group col-nd-6">
+    <button class="btn btn-primary">Buscar</button>
+    </div>
+
+    </div>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID Produto</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Cor</th>
+        <th scope="col">Tamanho em cm</th>
+        <th scope="col">Preço em R$</th>
+        <th scope="col">Alterar/Remover</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in produtos %}
+    <tr>
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.nome}}</td>
+        <td>{{p.categoria}}</td>
+        <td>{{p.cor}}</td>
+        <td>{{p.tamanho_em_cm}}</td>
+        <td>{{p.preco}}</td>
+        <td>
+            <a href="{% url 'editar_produto' p.pk %}">
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirProduto{{us.pk}}">
+                <i class="fas fa-trash"></i>
+            </button>
+        </td>
+    </tr>
+    <tr>
+
+
+        <!-- Modal Excluir Produto-->
+        <div class="modal fade" id="excluirProduto{{us.pk}}" tabindex="-1" role="dialog"
+             aria-labelledby="excluirProdutoTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="excluirProdutoTitulo">Deseja excluir o produto?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a class="btn btn-success" href="{% url 'excluir_produto' p.pk %}" role="button">Sim</a>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<!-- Modal Excluir Produto-->
+<div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTiltulo"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="excluirProdutoTiltulo">Deseja excluir o produto?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

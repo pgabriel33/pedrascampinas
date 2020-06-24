@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+     <head>
+          <meta charset="UTF-8">
+          <title>Pedras Campinas - Listagem de produtos</title>
+          <link rel="stylesheet" href="../css/listaProduto.css"/>
+
+          <!-- Modal Bootstrap -->
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+          <!-- Bootstrap v4.3-->
+          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+          <script src="../bootstrap/js/bootstrap.min.js" ></script>
+
+          <!-- Font Awesome-->
+          <link rel="stylesheet" href="../fontawesome/css/all.css" />
+          
+     </head>
+     
+     <body>
+          <nav class="navbar navbar-light" style="background-color: #79b2c5">
+                    <img src="../img/logo1.png" id="logo" />
+              
+                  
+                    <ul class="navbar-nav px-3">
+                         <li class="nav-item text-nowrap">
+                              <img src="../img/male.png" id="user"/>
+                         </li>
+                         <li class="nav-item text-nowrap">
+                              <a class="nav-link" href="../../index.html">Sair</a>
+                         </li>
+                    </ul>
+          </nav>
+          <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-light">
+                    <div class="sidebar-sticky" >
+                          <ul class="nav flex-column">
+                            <li class="nav-item">
+                              <a class="nav-link active" style="font-size:18px;"href="../html/dashboard.html">
+                                <span data-feather="home"></span>
+                                Dashboard <span class="sr-only"></span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" style="font-size:18px;" href="../html/listaProduto.html">
+                                <span data-feather="file"></span>
+                                Produtos
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" style="font-size:18px;"href="../html/gerenciarUsuario.html">
+                                <span data-feather="shopping-cart"></span>
+                                Usuarios
+                              </a>
+                            </li>
+                         
+                          </ul>
+                        </div>
+          </nav>
+
+      <div class="container text-center" style="margin:-128px 0px 0 215px">           
+                    <h1 class="h2">Listagem de Produtos</h1><hr>
+
+                    <a href="cadastroProduto.html">
+                         <button class="btn btn-primary">Cadastar Produto</button>
+                    </a>
+                    
+                    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">  
+                    
+                    
+                    <table class="table table-striped">
+                                   <thead>
+                                   <tr>
+                                   <th scope="col">ID Produto</th>
+                                   <th scope="col">Nome</th>
+                                   <th scope="col">Categoria</th>
+                                   <th scope="col">Cor</th>
+                                   <th scope="col">Tamanho em cm</th>
+                                   <th scope="col">Preço em R$</th>
+                                   <th scope="col">Alterar/Remover</th>
+                                   </tr>
+                                   </thead>
+                              <tbody>
+                                   <tr>
+                                   <th scope="row">1</th>
+                                   <td>Pedra1</td>
+                                   <td>Quartzo</td>
+                                   <td>Rosa</td>
+                                   <td>170</td>
+                                   <td>90</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                <i class="fas fa-edit"></i>
+                                        </button>
+                                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                 <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">2</th>
+                                   <td>Pedra2</td>
+                                   <td>Retalho</td>
+                                   <td>Branco</td>
+                                   <td>200</td>
+                                   <td>70</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                             <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                             <i class="fas fa-trash"></i>
+                                        </button>          
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">3</th>
+                                   <td>Pedra3</td>
+                                   <td>Laje</td>
+                                   <td>Verde</td>
+                                   <td>70</td>
+                                   <td>100</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                             <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                            <i class="fas fa-trash"></i>
+                                        </button>       
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">4</th>
+                                   <td>Pedra4</td>
+                                   <td>Seixo</td>
+                                   <td>Rosa</td>
+                                   <td>231</td>
+                                   <td>46</td>
+                                   <td>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                  <i class="fas fa-edit"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                  <i class="fas fa-trash" ></i>
+                                        </button>  
+                                        
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">5</th>
+                                   <td>Pedra5</td>
+                                   <td>Serrada</td>
+                                   <td>Branco</td>
+                                   <td>500</td>
+                                   <td>112</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                  <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                  <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">6</th>
+                                   <td>Pedra6</td>
+                                   <td>Seixo</td>
+                                   <td>Verde</td>
+                                   <td>198</td>
+                                   <td>321</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                  <i class="fas fa-edit"></i>
+                                        </button>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                  <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   </tr>
+                              </tbody>
+                    </table> 
+                    <nav aria-label="Navegação de página">
+                              <ul class="pagination">
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Anterior">
+                                    <span aria-hidden="true">Anterior</span>
+                                  </a>
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Próximo">
+                                    <span aria-hidden="true">Proximo</span>
+                                  </a>
+                                </li>
+                              </ul>
+                     </nav>
+          </div>   
+          </div>
+
+          
+          <!-- Modal Excluir Produto-->                            
+          <div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTiltulo" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                         <div class="modal-header">
+                              <h5 class="modal-title" id="excluirProdutoTiltulo">Deseja excluir o produto?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                         </div>
+                         
+                         <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                              <button type="button" class="btn btn-primary">Sim</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+             <!-- Modal Alterar Produto-->                            
+             <div class="modal fade" id="alterarProduto" tabindex="-1" role="dialog" aria-labelledby="alterarProdutoTitulo" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <h5 class="modal-title" id="alterarProdutoTitulo">Alterar Produto</h5>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                   <span aria-hidden="true">&times;</span>
+                                   </button>
+                              </div>
+
+                                <form name="meuForm">
+                                    <div id="alterarProd">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Nome do Produto</label>
+                                            <input type="text" class="form-control" id="Nomeproduto" placeholder="Nome">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">ID do Produto</label>
+                                            <input type="Number" class="form-control" id="ID" placeholder="ID">
+                                        </div>        
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Categoria</label>
+                                            <select class="form-control" id="Categoria">
+                                              <option>Escolher...</option>
+                                              <option>Quartzo</option>
+                                              <option>Seixo</option>
+                                              <option>Laje</option>
+                                              <option>Retalho</option>
+                                              <option>Serrada</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Cor</label>
+                                            <select class="form-control" id="Cor">
+                                              <option>Escolher...</option>
+                                              <option>Rosa</option>
+                                              <option>Branco</option>
+                                              <option>Verde</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Tamanho em cm</label>
+                                            <input type="number" class="form-control" id="tamanho" placeholder="Tamanho">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Preço em R$</label>
+                                            <input type="number" class="form-control" id="Preço" placeholder="Preço">
+                                        </div>
+                                        
+                                    </div>
+                                </form>
+                              
+                              <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                   <button type="button" class="btn btn-primary">Sim</button>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+     </body>
+
+</html>

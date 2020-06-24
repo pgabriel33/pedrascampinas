@@ -1,0 +1,161 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<link href="{% static 'css/Verificarcompra.css' %}" rel="stylesheet" type="text/css">
+<div class="wrapper">
+
+    <div id="formCadUsuario">
+        <div id="formHead">Verificação de Compra
+            <hr>
+        </div>
+
+        <div class="col-sm-2">
+            <ul type="none">
+                <div>
+                    <div class="product-imagem">
+                        <div class="place-container">
+                            <li class="li-produto"><img class="div-produto" src="{{produto.imagem.url}}"
+                                                        width="500" height="300" style="margin: 0 0 0 70px"></a>
+
+                            </li>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="inputNome">Produto: {{produto.nome}}</label>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="inputEmail">Nome do Usuário: {{nome_user}}</label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputEndereco">Preço da Compra: {{produto.preco}}</label>
+        </div>
+
+        <div class="form-group">
+            <label for="inputObs">Data da Compra: {{data}}</label>
+        </div>
+
+ <form id="form" method="post">
+        <div class="form-group">
+            {{forma_de_pagamento|crispy }}
+        </div>
+
+        <div class="form-group">
+
+                {% csrf_token %}
+                <div class="collapse" id="collapseCartao">
+                    {{cartao.nome_no_cartao|as_crispy_field}}
+
+                    <div id="dataCartao" class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{cartao.numero_do_cartao|as_crispy_field}}
+                        </div>
+
+                        <div class="form-group col-md-6 mb-0">
+                            {{cartao.codigo_cvv|as_crispy_field}}
+                        </div>
+                    </div>
+
+                    <label for="dataCartao">Data de Vencimento do Cartão</label>
+                    <div id="dataCartao" class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{cartao.mes_data_de_expiracao|as_crispy_field}}
+                        </div>
+
+                        <div class="form-group col-md-6 mb-0">
+                            {{cartao.ano_data_de_expiracao|as_crispy_field}}
+                        </div>
+                    </div>
+
+
+                </div>
+                <button id="submitButton" type="submit" class="btn btn-success">
+                    <i class="fas fa-check"></i> Finalizar</a>
+                </button>
+
+                <a class="btn btn-danger" href="{% url 'home' %}" role="button"><i class="far fa-times-circle"></i>
+                    Cancelar</a>
+
+            </form>
+        </div>
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Compra</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Confirmar Compra</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{% url 'confirmar_comprar' produto.pk %}">
+                        <button type="button" class="btn btn-primary">Confirmar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script>
+
+
+    $('#id_forma_de_pagamento').on('change', function() {
+
+
+
+        if(this.value == 67){
+           $('#collapseCartao').collapse('hide')
+        }
+
+         else if(this.value == 34){
+            $('#collapseCartao').collapse('show')
+        }
+
+        else if(this.value == 89){
+            $('#collapseCartao').collapse('show')
+        }
+        else{
+            $('#collapseCartao').collapse('hide')
+        }
+
+
+
+    })
+
+    $( "#submitButton" ).click(function() {
+
+       if ($('#id_forma_de_pagamento').val()!='' ){
+        $('form').submit()
+       }
+
+    });
+
+
+
+    </script>
+    {% endblock %}
+
+
+
+
+
+
+
+

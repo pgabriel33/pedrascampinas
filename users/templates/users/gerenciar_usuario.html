@@ -1,0 +1,140 @@
+{% extends 'publico/dashboards/dashboards_base.html' %}
+{% load static %}
+{% block style %}
+<link href="{% static 'css/gerenciar_usuario.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block base %}
+<h1 class="h2">Listagem de Usuários</h1>
+<hr>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <input type="search" class="form-control ds-input" placeholder="Buscar Usuário...">
+    </div>
+
+    <div class="form-group col-md-6">
+        <button class="btn btn-primary">Buscar</button>
+    </div>
+
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID Usuário</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">CEP</th>
+        <th scope="col">Alterar/Remover</th>
+        <th scope="col">Definir Adm</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for us in users %}
+    <tr>
+        <th scope="row">{{us.id}}</th>
+        <td>{{us.nome}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.celular}}</td>
+        <td>{{us.cidade}}</td>
+        <td>{{us.estado}}</td>
+        <td>{{us.cep}}</td>
+        <td>
+
+            <a class="btn btn-primary" href="{% url 'editar' us.pk %}" role="button"> <i class="fas fa-edit"></i></a>
+
+
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirProduto{{us.pk}}">
+                <i class="fas fa-trash"></i>
+            </button>
+        </td>
+        <td>
+            {% if us.is_gerente %}
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#definirADM{{us.pk}}">
+                <i class="fas fa-user-check"></i>
+            </button>
+            {% else %}
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#definirADM{{us.pk}}">
+                <i class="fas fa-user-check"></i></i>
+            </button>
+            {% endif%}
+        </td>
+    </tr>
+
+
+    <!-- Modal Excluir Produto-->
+    <div class="modal fade" id="excluirProduto{{us.pk}}" tabindex="-1" role="dialog"
+         aria-labelledby="excluirProdutoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="excluirProdutoTitulo">Deseja remover o usuario?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-footer">
+                    <a class="btn btn-success" href="{% url 'excluir' us.pk %}" role="button">Sim</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal definir adm-->
+    <div class="modal fade" id="definirADM{{us.pk}}" tabindex="-1" role="dialog" aria-labelledby="definirADMTitulo"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="definirADMTitulo">Deseja alterar o status ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="{% url 'definir_gerente' us.pk %}" role="button">Sim</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<nav aria-label="Navegação de página" style="margin-left: 25%">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Anterior">
+                <span aria-hidden="true">Anterior</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Próximo">
+                <span aria-hidden="true">Proximo</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+
+
+<!-- </div> -->
+</div>
+
+
+{% endblock %}

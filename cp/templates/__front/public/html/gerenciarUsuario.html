@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+     <head>
+        <meta charset="UTF-8">
+         <title>Pedras Campinas - Gerenciar de Usuários</title>
+
+         <link rel="stylesheet" href="../css/gerenciarUsuario.css"/>
+
+          <!-- Modal Bootstrap -->
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+          <!-- Bootstrap v4.3-->
+          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+          <script src="../bootstrap/js/bootstrap.min.js" ></script>
+
+          <!-- Font Awesome-->
+          <link rel="stylesheet" href="../fontawesome/css/all.css" />
+
+     </head>
+     
+     <body>
+          <nav class="navbar navbar-light" style="background-color: #79b2c5">
+                    <img src="../img/logo1.png" id="logo" />
+                  
+                    
+                    <ul class="navbar-nav px-3">
+                        <li class="nav-item text-nowrap">
+                            <img src="../img/male.png" id="user"/>
+                       </li> 
+                        <li class="nav-item text-nowrap">
+                              <a class="nav-link" href="../../index.html">Sair</a>
+                         </li>
+                    </ul>
+          </nav>
+          <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                              <div class="sidebar-sticky">
+                                        <ul class="nav flex-column">
+                                          <li class="nav-item">
+                                            <a class="nav-link active"style="font-size:18px;" href="../html/dashboard.html">
+                                              <span data-feather="home"></span>
+                                              Dashboard <span class="sr-only"></span>
+                                            </a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link"style="font-size:18px;" href="../html/listaProduto.html">
+                                              <span data-feather="file"></span>
+                                              Produtos
+                                            </a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a class="nav-link"style="font-size:18px;" href="../html/gerenciarUsuario.html">
+                                              <span data-feather="shopping-cart"></span>
+                                              Usuarios
+                                            </a>
+                                          </li>
+                                         
+                                          
+                                          
+                                        </ul>
+                              </div>
+                    </nav>
+            
+          <div class="container text-center" style="margin:-128px 0px 0 215px">          
+                    <h1 class="h2">Gerenciar Usuários</h1><hr>
+
+                    <input type="search" class="form-control ds-input" placeholder="Buscar Usuários...">  
+                    
+                    
+                    <table class="table table-striped">
+                                   <thead>
+                                   <tr >
+                                   <th scope="col">ID Usuário</th>
+                                   <th scope="col">Nome</th>
+                                   <th scope="col">Email</th>
+                                   <th scope="col">Celular</th>
+                                   <th scope="col">Cidade</th>
+                                   <th scope="col">Estado</th>
+                                   <th scope="col">CEP</th>
+                                   <th scope="col">Alterar/Remover</th>
+                                   <th scope="col">Definir Adm</th>
+                                   </tr>
+                                   </thead>
+                              <tbody>
+                                   <tr>
+                                   <th scope="row">1</th>
+                                   <td>Renato Carlos</td>
+                                   <td>renato.carlos@mail.com</td>
+                                   <td>11 981238972</td>
+                                   <td>São Paulo</td>
+                                   <td>São Paulo</td>
+                                   <td>72981627</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                <i class="fas fa-edit"></i>
+                                        </button>
+                                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                 <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                             <i class="fas fa-user-edit"></i>
+                                        </button>
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">2</th>
+                                   <td>Amanda Carla</td>
+                                   <td>amanda.carla@mail.com</td>
+                                   <td>61 971923836</td>
+                                   <td>Brasília</td>
+                                   <td>Goias</td>
+                                   <td>62812790</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                             <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                             <i class="fas fa-trash"></i>
+                                        </button>          
+                                   </td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                             <i class="fas fa-user-edit"></i>
+                                        </button>
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">3</th>
+                                   <td>Larissa Rebeca</td>
+                                   <td>larissa.r3@mail.com</td>
+                                   <td>62 987400136</td>
+                                   <td>Anápolis</td>
+                                   <td>Goias</td>
+                                   <td>79129027</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                             <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                            <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   <td>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                                       <i class="fas fa-user-edit"></i>
+                                             </button>
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">4</th>
+                                   <td>Marcos Felipe</td>
+                                   <td>marcos.felipe@mail.com</td>
+                                   <td>47 982137218</td>
+                                   <td>Blumenau</td>
+                                   <td>Santa Catarina</td>
+                                   <td>12762990</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                  <i class="fas fa-edit"></i>
+                                        </button>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                  <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   <td>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                                       <i class="fas fa-user-edit"></i>
+                                             </button>
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">5</th>
+                                   <td>Lailson Sergio</td>
+                                   <td>laison.sergio@mail.com</td>
+                                   <td>21 971002563</td>
+                                   <td>Búzios</td>
+                                   <td>Rio de Janeiro</td>
+                                   <td>34221925</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light"data-toggle="modal" data-target="#alterarProduto">
+                                             <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light"data-toggle="modal" data-target="#excluirProduto">
+                                             <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                             <i class="fas fa-user-edit"></i>
+                                        </button>
+                                   </td>
+                                   </tr>
+                                   <tr>
+                                   <th scope="row">6</th>
+                                   <td>Vanessa Camargo</td>
+                                   <td>vanessa.camargo@mail.com</td>
+                                   <td>15 982159046</td>
+                                   <td>Sorocaba</td>
+                                   <td>São Paulo</td>
+                                   <td>18942731</td>
+                                   <td>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">
+                                                  <i class="fas fa-edit"></i>
+                                        </button>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">
+                                                  <i class="fas fa-trash"></i>
+                                        </button>       
+                                   </td>
+                                   <td>
+                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#definirADM">
+                                                       <i class="fas fa-user-edit"></i>
+                                             </button>
+                                   </td>
+                                   </tr>
+                              </tbody>
+                 
+                         </table> 
+                         <nav aria-label="Navegação de página">
+                                   <ul class="pagination">
+                                     <li class="page-item">
+                                       <a class="page-link" href="#" aria-label="Anterior">
+                                         <span aria-hidden="true">Anterior</span>
+                                       </a>
+                                     </li>
+                                     <li class="page-item">
+                                       <a class="page-link" href="#" aria-label="Próximo">
+                                         <span aria-hidden="true">Proximo</span>
+                                       </a>
+                                     </li>
+                                   </ul>
+                          </nav>     
+
+                         </div>       
+                    </div>
+
+          <!-- Modal Alterar Produto-->                            
+          <div class="modal fade" id="alterarProduto" tabindex="-1" role="dialog" aria-labelledby="alterarProdutoTitulo" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <h5 class="modal-title" id="alterarProdutoTitulo">Alterar Produto</h5>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                                   </button>
+                              </div>
+                              
+                              <div>
+                                   <form name="meuForm">
+                                        <div id="alterarProd">
+                                             <div class="form-group">
+                                             <label for="exampleFormControlInput1">Nome do Produto</label>
+                                             <input type="text" class="form-control" id="Nomeproduto" placeholder="Nome">
+                                             </div>
+                                             <div class="form-group">
+                                             <label for="exampleFormControlInput1">ID do Produto</label>
+                                             <input type="Number" class="form-control" id="ID" placeholder="ID">
+                                             </div>        
+                                             <div class="form-group">
+                                             <label for="exampleFormControlSelect1">Categoria</label>
+                                             <select class="form-control" id="Categoria">
+                                                  <option>Escolher...</option>
+                                                  <option>Quartzo</option>
+                                                  <option>Seixo</option>
+                                                  <option>Laje</option>
+                                                  <option>Retalho</option>
+                                                  <option>Serrada</option>
+                                             </select>
+                                             </div>
+                                             <div class="form-group">
+                                             <label for="exampleFormControlSelect2">Cor</label>
+                                             <select class="form-control" id="Cor">
+                                                  <option>Escolher...</option>
+                                                  <option>Rosa</option>
+                                                  <option>Branco</option>
+                                                  <option>Verde</option>
+                                             </select>
+                                             </div>
+                                             <div class="form-group">
+                                             <label for="exampleFormControlInput1">Tamanho em cm</label>
+                                             <input type="number" class="form-control" id="tamanho" placeholder="Tamanho">
+                                             </div>
+                                             <div class="form-group">
+                                             <label for="exampleFormControlInput1">Preço em R$</label>
+                                             <input type="number" class="form-control" id="Preço" placeholder="Preço">
+                                             </div>
+                                             
+                                        </div>
+                                   </form>
+                              </div>
+
+                              <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                   <button type="button" class="btn btn-primary">Sim</button>
+                              </div>
+
+                         </div>
+                    </div>
+               </div>
+
+          <!-- Modal Excluir Produto-->                            
+          <div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTitulo" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                         <div class="modal-header">
+                              <h5 class="modal-title" id="excluirProdutoTitulo">Deseja excluir o produto?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                         </div>
+                         
+                         <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                              <button type="button" class="btn btn-primary">Sim</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <!-- Modal definir adm-->
+          <div class="modal fade" id="definirADM" tabindex="-1" role="dialog" aria-labelledby="definirADMTitulo" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <h5 class="modal-title" id="definirADMTitulo">Deseja alterar para Administrador?</h5>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                                   </button>
+                              </div>
+                              
+                              <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                   <button type="button" class="btn btn-primary">Sim</button>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+     </body>
+
+</html>

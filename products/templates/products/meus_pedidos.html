@@ -1,0 +1,119 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<nav class="navbar navbar-light" style="background-color: #79b2c5">
+                    <img src="{% static 'image/logo1.png' %}" id="logo" />
+
+
+                    <ul class="navbar-nav px-3">
+                         <li class="nav-item text-nowrap">
+                              <img src="{% static 'image/male.png' %}" id="user"/>
+                         </li>
+                         <li class="nav-item text-nowrap">
+                              <a class="nav-link" href="/">Sair</a>
+                         </li>
+                    </ul>
+          </nav>
+
+
+
+
+
+
+               <link href="{% static 'css/cadastroProduto.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'products/css/main.css' %}" rel="stylesheet" type="text/css">
+
+
+
+<h1 class="h2" style=" justify-content: center;
+  text-align: center;">Meus Pedidos</h1>
+<hr>
+<script src="{% static 'products/js/progress-bar.js' %}"></script>
+
+
+{% for comp in compras %}
+<div class="container">
+<div class="card mt-3">
+    <div style="background=#fff" class="{{comp.id}}">  </div>
+        <script>
+        //pegar o nome do status da compra e gerar a barra de progresso
+          $.ajax({
+        url: '{% url "get_name_by_id" %}',
+        data: {
+          'pk': {{comp.status_da_compra}}
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (!data.nome) {
+            alert('Falha ao buscar detalhes da categoria');
+          } else {
+
+
+            //we can set animation delay as following in ms (default 1000)
+            ProgressBar.singleStepAnimation = 1500;
+
+            ProgressBar.init(
+
+            ['Em Analise','Aprovado','Preparando Entrega','Transportadora','Pedidos Entregues',
+             ],
+              data.nome,
+              '{{comp.id}}' // created this optional parameter for container name (otherwise default container created)
+            );
+
+
+
+          }
+        }
+      });
+
+       $.ajax({
+        url: '{% url "get_name_by_id" %}',
+        data: {
+          'pk': {{comp.forma_de_pagamento}}
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (!data.nome) {
+            alert('Falha ao buscar detalhes da categoria');
+          } else {
+
+            var star = $( "#{{comp.id}}" ).first().text();
+            star = $( "#{{comp.id}}" ).first().text(star +data.nome)
+
+
+
+
+          }
+        }
+      });
+
+
+
+
+        </script>
+        <div class="card-body">
+            <br>
+            <h5 class="card-title">Pedido Realizado No dia {{comp.data_da_compra}}</h5>
+            <br>
+            <p class="card-text" ><label>Produto:</label> {{comp.produto.nome}}</p>
+            <p class="card-text" id="{{comp.id}}"><label>Forma de Pagamento:</label> </p>
+            <p class="card-text" ><label>Valor: </label>{{comp.produto.preco}} </p>
+            {% if comp.boleto %}
+            <a href='{{comp.boleto.codigo}}' class="btn btn-primary" target="_blank">Boleto</a>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+    {% endfor%}
+
+
+
+
+
+ {% endblock %}
+
+
+
+

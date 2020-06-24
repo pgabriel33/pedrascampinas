@@ -1,0 +1,41 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% block title %}Crie sua conta{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="wrapper">
+    <div id="formLogin">    
+
+        <!-- Icone -->
+        <div>
+            <img src="{% static 'image/logo1.png' %}" id="logo" />
+            <h1>Login</h1>
+        </div>
+
+        <!-- Login -->
+        <div>
+            <form method='POST'>
+                {% csrf_token %}
+                {{ form }}
+                 <input class="btn btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+       
+    </a>
+        <!-- Esqueci Senha / Cadastrar-se -->
+        <div id="formFooter">
+            <a class="finalForm" href="#">Esqueceu a senha?</a>
+            <a class="finalForm" href="{% url 'cadastra' %}">Cadastrar-se</a>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
